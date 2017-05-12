@@ -965,9 +965,9 @@ NDFileIMM::NDFileIMM(const char *portName,int max_imm_bytes ,int queueSize, int 
                        const char *NDArrayPort, int NDArrayAddr,
                        int priority, int stackSize) :
      NDPluginFile(portName, queueSize, blockingCallbacks,
-                   NDArrayPort, NDArrayAddr, 1, 
+                   NDArrayPort, NDArrayAddr, 1, num_params,
                    500, 0, asynGenericPointerMask, asynGenericPointerMask,
-                   ASYN_CANBLOCK, 1, priority, stackSize,10)
+                   ASYN_CANBLOCK, 1, priority, stackSize)
 
 
 
