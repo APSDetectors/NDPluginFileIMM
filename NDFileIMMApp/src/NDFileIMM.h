@@ -1,6 +1,6 @@
 /*
  * NDFileTIFF.h
- * Writes NDArrays to TIFF files.
+ * Writes NDArrays to IMM files.
  * John Hammonds
  * April 17, 2009
  */
