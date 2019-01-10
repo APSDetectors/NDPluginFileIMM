@@ -176,11 +176,6 @@ asynStatus NDFileIMM::openFile(const char *fileName, NDFileOpenMode_t openMode, 
 		printf("Opened IMM File\n");
 		   setIntegerParam(NDFileWriteStatus, NDFileWriteOK);
 		   setStringParam(NDFileWriteMessage, "");
-
-        int chstat;
-        if (cf->myfile != 0)
-		    chstat=_chmod(cf->myfile->file_name,0777);
-
 	}
     return(asynSuccess);
 }
@@ -862,12 +857,7 @@ int NDFileIMM::recursePath(char *pathstr, bool is_makedirs)
 #ifdef _WIN32					
 					status= _mkdir(part_path.c_str());
 #else
-					umask(0777);	
-				    int mode=(int)umask(0777);
 					status= mkdir(part_path.c_str(),0777);
-					int chstat=_chmod(part_path.c_str(),0777);
-					printf("mkdir umask %0o chmod ret %d\n ", mode, chstat);
-
 #endif
 
 					if (status!=0)
